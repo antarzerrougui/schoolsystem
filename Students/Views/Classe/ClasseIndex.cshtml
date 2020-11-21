@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Students.Models.Classe>
+
+@{
+    ViewData["Title"] = "ClasseIndex";
+}
+
+<h1>تسيير الأقسام</h1>
+
+<p>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Classe" asp-action="AddClasse">إضافة قسم جديد</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClasseNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClasseLevel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClasseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClasseLevel)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClasseId">تعديل</a> |
+                <a asp-action="Details" asp-route-id="@item.ClasseId">البيانات</a> |
+                <a asp-action="Delete" asp-route-id="@item.ClasseId">حذف</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

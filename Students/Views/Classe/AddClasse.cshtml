@@ -1,0 +1,38 @@
+﻿@model Students.Models.Classe
+
+@{
+    ViewData["Title"] = "AddClasse";
+}
+
+<h1>AddClasse</h1>
+
+<h4>Classe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddClasse">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClasseNumber" class="control-label"></label>
+                <input asp-for="ClasseNumber" class="form-control" />
+                <span asp-validation-for="ClasseNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClasseLevel" class="control-label"></label>
+                <input asp-for="ClasseLevel" class="form-control" />
+                <span asp-validation-for="ClasseLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
